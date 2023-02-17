@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import "./assets/fonts/Gilroy-Medium.ttf";
 import { ScreenSizes } from "./shared/helpers/themes";
 
@@ -21,7 +21,6 @@ export const GlobalStyle = createGlobalStyle`
     position: sticky;
     height: 100%;
   };
-  }
 
   ul[class],
   ol[class] {
@@ -65,4 +64,8 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+`;
+
+export const MainContainer = styled.div`
+  display: flex;
 `;

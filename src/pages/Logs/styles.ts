@@ -13,7 +13,7 @@ export const StyledLoginButton = styled.button`
 `;
 
 export const StyledFlexBlock = styled.div`
-  width: 100vw;
+  margin-top: -20px;
   height: 100vh;
   display: flex;
   justify-content: center;
