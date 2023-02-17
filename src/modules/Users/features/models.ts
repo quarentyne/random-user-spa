@@ -30,12 +30,10 @@ export interface IUser {
 export interface IUsersState {
   users: IUser[];
   isLoading: boolean;
+  error: string | null;
 };
 
-export interface IServerResponseSuccess {
+export interface IServerResponse {
   results: IUser[];
-};
-
-export interface IServerResponseError {
-  error: string;
+  error?: string;
 };

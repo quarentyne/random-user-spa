@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IServerResponseSuccess, IUsersState } from "./models";
+import { IServerResponse, IUsersState } from "./models";
 
 const initialState: IUsersState = {
   users: [],
   isLoading: false,
+  error: null,
 };
 
 const usersSlice = createSlice({
@@ -13,8 +14,9 @@ const usersSlice = createSlice({
     getUsers: (state) => {
       state.isLoading = true;
     },
-    setUsers: (state, action: PayloadAction<IServerResponseSuccess>) => {
+    setUsers: (state, action: PayloadAction<IServerResponse>) => {
       state.isLoading = false;
+      state.error = action.payload.error ? action.payload.error : null;
       state.users = [...state.users, ...action.payload.results];
     },
   },

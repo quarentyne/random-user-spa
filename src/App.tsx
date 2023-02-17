@@ -1,24 +1,14 @@
-import React from 'react';
-import logo from './assets/svg/logo.svg';
+import { Suspense } from 'react';
+import { RouterConfig } from './router/Config';
+import { Loader } from './shared/components/Loader/Loader';
+import { GlobalStyle } from './styles';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loader />}>
+      <GlobalStyle />
+      <RouterConfig />
+    </Suspense>
   );
 }
 
