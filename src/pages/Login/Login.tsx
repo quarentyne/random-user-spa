@@ -9,7 +9,7 @@ export const Login = () => {
 
   const login = () => {
     dispatch(authorize());
-    navigate("/home");
+    navigate("/home", {replace: true});
   };
 
   return(

@@ -1,0 +1,11 @@
+{
+  "sideMenu": {
+    "home": "Home",
+    "users": "Users",
+    "userInfo": "User Info",
+    "logout": "Log out",
+    "login": "Log in",
+    "english": "English",
+    "ukrainian": "Ukrainian"
+  }
+}
