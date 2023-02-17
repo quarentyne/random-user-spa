@@ -2,9 +2,10 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { authorize } from "../../modules/LoginStatus/features/reducer";
 import { loginStatusSelector } from "../../modules/LoginStatus/features/selector";
+import { LanguageChanger } from "../../shared/components/LanguageChanger/LanguageChanger";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
-import { StyledFlexBlock, StyledLoginButton } from "./styles";
+import {  StyledLogButton, StyledLoginBlock, StyledLoginLanguageBlock } from "./styles";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -22,8 +23,11 @@ export const Login = () => {
   };
 
   return(
-    <StyledFlexBlock>
-      <StyledLoginButton type="submit" onClick={login}>{t(`sideMenu.login`)}</StyledLoginButton>
-    </StyledFlexBlock>
+    <StyledLoginBlock>
+      <StyledLogButton type="submit" onClick={login}>{t(`sideMenu.login`)}</StyledLogButton>
+      <StyledLoginLanguageBlock>
+        <LanguageChanger />
+      </StyledLoginLanguageBlock>
+    </StyledLoginBlock>
   );
 };

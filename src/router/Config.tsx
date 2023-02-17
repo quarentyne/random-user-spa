@@ -8,8 +8,8 @@ export const RouterConfig = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate replace to="/login" />}/>
-      <Route path="/" element={<Layout />}>
-        <Route path="login" element={<Login />} />
+      <Route path="login" element={<Login />} />
+      <Route path="/" element={<Layout />}>        
         <Route path="logout" element={<Logout />} />
         <Route path='home' element={<Home />}/>
       </Route>

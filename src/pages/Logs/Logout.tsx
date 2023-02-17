@@ -5,7 +5,7 @@ import { authorize } from "../../modules/LoginStatus/features/reducer";
 import { loginStatusSelector } from "../../modules/LoginStatus/features/selector";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
-import { StyledFlexBlock, StyledLoginButton } from "./styles";
+import { StyledLogButton, StyledLogoutBlock } from "./styles";
 
 export const Logout = () => {
   const navigate = useNavigate();
@@ -25,8 +25,8 @@ export const Logout = () => {
   };
 
   return(
-    <StyledFlexBlock>
-      <StyledLoginButton type="submit" onClick={logout}>{t(`sideMenu.logout`)}</StyledLoginButton>
-    </StyledFlexBlock>
+    <StyledLogoutBlock>
+      <StyledLogButton type="submit" onClick={logout}>{t(`sideMenu.logout`)}</StyledLogButton>
+    </StyledLogoutBlock>
   );
 };
