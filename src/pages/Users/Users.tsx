@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../../modules/Users/features/actionCreators";
-// import { fetchUsers } from "../../modules/Users/features/actionCreators";
 import { usersSelector } from "../../modules/Users/features/selector";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
@@ -18,9 +17,6 @@ export const Users = () => {
     setPage(page + 1)
     dispatch(getUsers({amount: 10, page}))
   };
-  // useEffect(() => {
-  //   dispatch(fetchUsers(10, page));
-  // }, [page]);
 
   console.log(page)  
 
