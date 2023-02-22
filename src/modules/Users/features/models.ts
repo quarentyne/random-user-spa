@@ -22,18 +22,18 @@ export interface IUser {
       name: string;
     };
     city: string;
-    state: string;
     country: string;
+  };
+  id:{
+    value: string;
   };
 };
 
 export interface IUsersState {
   users: IUser[];
   isLoading: boolean;
-  error: string | null;
 };
 
 export interface IServerResponse {
   results: IUser[];
-  error?: string;
 };

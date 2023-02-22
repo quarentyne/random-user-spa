@@ -7,5 +7,10 @@
     "login": "Log in",
     "english": "English",
     "ukrainian": "Ukrainian"
+  },
+  "user": {
+    "name": "Name",
+    "birthday": "Birthday",
+    "sex": "Sex"
   }
 }

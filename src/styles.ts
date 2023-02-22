@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Gilroy;
     font-weight: 500;
     font-size: 15px;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(194,217,252,1) 34%, rgba(0,212,255,1) 100%) no-repeat fixed;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(194,217,252,1) 34%, rgba(0,212,220,1) 100%) no-repeat fixed;
     color: #292D45;
     @media screen and (min-width: ${ScreenSizes.TABLET}px){    
     font-size: 20px;    

@@ -5,7 +5,6 @@ import { IServerResponse, IUsersState } from "./models";
 const initialState: IUsersState = {
   users: [],
   isLoading: false,
-  error: null,
 };
 
 const usersSlice = createSlice({
