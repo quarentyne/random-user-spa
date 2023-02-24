@@ -24,8 +24,8 @@ export interface IUser {
     city: string;
     country: string;
   };
-  id:{
-    value: string;
+  login:{
+    username: string;
   };
 };
 

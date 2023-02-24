@@ -12,5 +12,8 @@
     "name": "Name",
     "birthday": "Birthday",
     "sex": "Sex"
+  },
+  "userInfo":{
+    "selectUser": "Select a user to see their info"
   }
 }

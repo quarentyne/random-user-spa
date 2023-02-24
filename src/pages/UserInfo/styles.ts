@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const StyledFlexBlock = styled.div`
-  display: flex;
+export const StyledInfoWrapper = styled.div`
+  display flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 `;

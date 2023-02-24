@@ -1,8 +1,6 @@
-import { StyledFlexBlock } from "./styles"
-
 export const Loader = () => {
   return(
-    <StyledFlexBlock>
+    <div style={{textAlign: "center"}}>
       <svg xmlns="http://www.w3.org/2000/svg" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
         <g transform="rotate(0 50 50)">
           <rect x="43.5" y="9.5" rx="6.5" ry="6.5" width="13" height="13" fill="#1d0e0b">
@@ -54,6 +52,6 @@ export const Loader = () => {
           </rect>
         </g>
       </svg>
-    </StyledFlexBlock>
+    </div>
   );  
 };
