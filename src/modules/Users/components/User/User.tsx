@@ -1,4 +1,7 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../../shared/hooks/useAppDispatch";
+import { setUserInfo } from "../../../UserInfo/features/reducer";
 import { StyledUserCardWrapper, StyledUserMainWrapper, StyledUserPersonalInfo } from "./styles";
 
 interface IUser {
@@ -11,6 +14,7 @@ interface IUser {
       number: number;
       name: string;
     };
+    state: string,
     city: string;
     country: string;
   };
@@ -20,6 +24,8 @@ interface IUser {
 
 export const User = ({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate}: IUser) => {
   const {t} = useTranslation();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const renderDate = (date: Date): string => {
     const day = date.getDate();
@@ -28,8 +34,13 @@ export const User = ({fullName, avatar, birthDate, sex, address, phoneNumber, re
     return ((day < 10 ? validateDate(day) : day) + '.' + (month < 10 ? validateDate(month) : month) + '.' + date.getFullYear());
   };
 
+  const onClickHandler = () => {
+    dispatch(setUserInfo({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate}));
+    navigate("/user-info");
+  };
+
   return(
-    <StyledUserCardWrapper sex={sex}>
+    <StyledUserCardWrapper sex={sex} onClick={onClickHandler}>
       <StyledUserMainWrapper>
         <img style={{borderRadius: "10px"}} src={avatar} alt="avatar"/>
         <StyledUserPersonalInfo>

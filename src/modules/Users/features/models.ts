@@ -21,6 +21,7 @@ export interface IUser {
       number: number;
       name: string;
     };
+    state: string,
     city: string;
     country: string;
   };
