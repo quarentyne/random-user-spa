@@ -3,7 +3,7 @@ import { loginStatusSelector } from '../modules/LoginStatus/features/selector';
 import { Home } from '../pages/Home/Home';
 import { Login } from '../pages/Logs/Login';
 import { Logout } from '../pages/Logs/Logout';
-import { UserInfo } from '../pages/UserInfo/UserInfo';
+import { UserInformation } from '../pages/UserInformation/UserInformation';
 import { Users } from '../pages/Users/Users';
 import { useAppSelector } from '../shared/hooks/useAppSelector';
 import { Layout } from '../shared/Layout/Layout';
@@ -18,7 +18,7 @@ export const RouterConfig = () => {
         <Route path="logout" element={<Logout />} />
         <Route path='home' element={<Home />}/>
         <Route path='users' element={<Users />}/>
-        <Route path='user-info' element={<UserInfo />}/>
+        <Route path='user-info' element={<UserInformation />}/>
       </Route>
     </Routes>
   );

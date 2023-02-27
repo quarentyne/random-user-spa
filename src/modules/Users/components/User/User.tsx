@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { renderDate } from "../../../../shared/helpers/dateRender";
 import { useAppDispatch } from "../../../../shared/hooks/useAppDispatch";
 import { setUserInfo } from "../../../UserInfo/features/reducer";
 import { StyledUserCardWrapper, StyledUserMainWrapper, StyledUserPersonalInfo } from "./styles";
@@ -26,13 +27,6 @@ export const User = ({fullName, avatar, birthDate, sex, address, phoneNumber, re
   const {t} = useTranslation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
-  const renderDate = (date: Date): string => {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const validateDate = (value: number): string => `0${value}`;
-    return ((day < 10 ? validateDate(day) : day) + '.' + (month < 10 ? validateDate(month) : month) + '.' + date.getFullYear());
-  };
 
   const onClickHandler = () => {
     dispatch(setUserInfo({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate}));

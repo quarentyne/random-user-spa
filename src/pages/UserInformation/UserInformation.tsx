@@ -6,9 +6,10 @@ import { removeUserInfo } from "../../modules/UserInfo/features/reducer";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { userInfoSelector } from "../../modules/UserInfo/features/selector";
+import { UserInfo } from "../../modules/UserInfo/components/UserInfo";
 
 
-export const UserInfo = () => {
+export const UserInformation = () => {
   const {t} = useTranslation();
   const dispatch = useAppDispatch();
   const { user } = useAppSelector(userInfoSelector); 
@@ -30,7 +31,15 @@ export const UserInfo = () => {
   
   return(
     <StyledInfoWrapper>
-      {user.fullName}
+      <UserInfo 
+        fullName={user.fullName}
+        birthDate={user.birthDate}
+        phoneNumber={user.phoneNumber}
+        registrationDate={user.registrationDate}
+        address={user.address}
+        avatar={user.avatar}
+        sex={user.sex}
+      />
     </StyledInfoWrapper>
   );
 };
