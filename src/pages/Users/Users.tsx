@@ -21,9 +21,7 @@ export const Users = () => {
     if(isFetching){
       dispatch(getUsers({amount: 10, page: currentPage}));
       setIsFetching(false);
-    };   
-    
-    setCurrentPage(currentPage + 1);
+    };       
   }, [dispatch, currentPage, isFetching, users]);
 
   useEffect(() => {
@@ -35,6 +33,7 @@ export const Users = () => {
 
   const onScroll = () => {
     if(document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100 && !isLoading){
+      setCurrentPage(currentPage + 1);
       setIsFetching(true);
     };
   };
