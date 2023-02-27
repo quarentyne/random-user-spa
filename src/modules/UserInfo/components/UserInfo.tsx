@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { renderDate } from "../../../shared/helpers/dateRender";
-import {  StyledAvatarBlock, StyledAdditionInfo, StyledBlockLabel, StyledAdditionalInfoBlock, StyledGeneralInformationBlock, StyledNameBlock, StyledUserInfoContainer, StyledUserInfoWrapper } from "./styles";
+import {  StyledAvatarBlock, StyledInfoItem, StyledBlockLabel, StyledAdditionalInfoBlock, StyledGeneralInformationBlock,  StyledUserInfoContainer, StyledUserInfoWrapper } from "./styles";
 
 interface IUser {
   fullName: string;
@@ -27,44 +27,44 @@ export const UserInfo = ({fullName, avatar, birthDate, sex, address, phoneNumber
     <StyledUserInfoContainer>
       <StyledUserInfoWrapper>
         <StyledAvatarBlock src={avatar} alt="user avatar"/>
-        <StyledNameBlock>{fullName}</StyledNameBlock>
+        <StyledBlockLabel>{fullName}</StyledBlockLabel>
         <StyledGeneralInformationBlock>
-          <p>
+          <StyledInfoItem>
             <span>{t(`userInfo.gender`)}:</span>
             <span>{sex}</span>
-            </p>
-          <p>
+          </StyledInfoItem>
+          <StyledInfoItem>
             <span>{t(`userInfo.birthday`)}:</span>
             <span>{renderDate(new Date(Date.parse(birthDate)))}</span>
-            </p>
-          <p>
+          </StyledInfoItem>
+          <StyledInfoItem>
             <span>{t(`userInfo.registration`)}:</span>
             <span>{renderDate(new Date(Date.parse(registrationDate)))}</span>
-          </p>
+          </StyledInfoItem>
         </StyledGeneralInformationBlock>
         <StyledAdditionalInfoBlock>
           <StyledBlockLabel>{t(`userInfo.contacts`)}</StyledBlockLabel>
-          <StyledAdditionInfo>
+          <StyledInfoItem>
             <span>{t(`userInfo.phoneNumber`)}:</span>
             <span>{phoneNumber}</span>
-          </StyledAdditionInfo>
+          </StyledInfoItem>
           <StyledBlockLabel>{t(`userInfo.address`)}</StyledBlockLabel>
-          <StyledAdditionInfo>
+          <StyledInfoItem>
             <span>{t(`userInfo.country`)}:</span>
             <span>{address.country}</span>
-          </StyledAdditionInfo>
-          <StyledAdditionInfo>
+          </StyledInfoItem>
+          <StyledInfoItem>
             <span>{t(`userInfo.state`)}:</span>
             <span>{address.state}</span>
-          </StyledAdditionInfo>
-          <StyledAdditionInfo>
+          </StyledInfoItem>
+          <StyledInfoItem>
             <span>{t(`userInfo.city`)}:</span>
             <span>{address.city}</span>
-          </StyledAdditionInfo>
-          <StyledAdditionInfo>
+          </StyledInfoItem>
+          <StyledInfoItem>
             <span>{t(`userInfo.street`)}:</span>
             <span>{`${address.street.name}, ${address.street.number}`}</span>
-          </StyledAdditionInfo>
+          </StyledInfoItem>
         </StyledAdditionalInfoBlock>
       </StyledUserInfoWrapper>
     </StyledUserInfoContainer>

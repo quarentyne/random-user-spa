@@ -11,24 +11,20 @@ export const Users = () => {
   const {users, isLoading} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
   const [currentPage, setCurrentPage] = useState(1);
-  const [isFetching, setIsFetching] = useState(true);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
+    if(!users.length){
+      dispatch(getUsers({amount: 20, page: currentPage}));
+    };
+
     if(isFetching){
-      const getUsersParams = {
-        amount: 10,
-        page: currentPage,
-      };
-  
-      if(!users.length) {
-        getUsersParams.amount = 20;
-      };
-  
-      dispatch(getUsers(getUsersParams));
-      setCurrentPage(currentPage + 1);
+      dispatch(getUsers({amount: 10, page: currentPage}));
       setIsFetching(false);
-    }    
-  }, [dispatch, users, isFetching, currentPage]);
+    };   
+    
+    setCurrentPage(currentPage + 1);
+  }, [dispatch, currentPage, isFetching, users]);
 
   useEffect(() => {
     document.addEventListener("scroll", onScroll);

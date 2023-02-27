@@ -23,11 +23,6 @@ export const StyledAvatarBlock = styled.img`
   margin-bottom: 20px;
 `;
 
-export const StyledNameBlock = styled.p`
-  font-size: 24px;
-  margin: 0 auto 10px auto;
-`;
-
 export const StyledGeneralInformationBlock = styled.div`  
   margin-bottom: 25px;
   >p{
@@ -42,7 +37,7 @@ export const StyledAdditionalInfoBlock = styled.div`
   color: rgba(0, 0, 0, 0.7);
 `;
 
-export const StyledAdditionInfo = styled.p`
+export const StyledInfoItem = styled.p`
   display: flex;
   justify-content: space-between;
 `;
