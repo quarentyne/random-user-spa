@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { ScreenSizes } from "../../shared/helpers/themes";
 
 export const StyledHomeContainer = styled.div`
   margin: 0 auto;
-  width: 90%;
-  height: 100%;
+  height: 100vh;
+  margin-top: -20px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 3px #555;
@@ -17,5 +18,11 @@ export const StyledHomeContainer = styled.div`
     padding: 20px;
     font-size: 24px;
     text-align: center;
+  }
+
+  @media screen and (min-width: ${ScreenSizes.TABLET}px) {
+    margin-top: 0;
+    width: 90%;
+    height: 100%;
   }
 `;
