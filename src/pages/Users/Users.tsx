@@ -5,7 +5,7 @@ import { usersSelector } from "../../modules/Users/features/selector";
 import { Loader } from "../../shared/components/Loader/Loader";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
-import { StyledUsersWrapper, StylerUsersList } from "./styles";
+import { StyledUsersWrapper, StyledUsersList } from "./styles";
 
 export const Users = () => {
   const {users, isLoading} = useAppSelector(usersSelector);
@@ -40,7 +40,7 @@ export const Users = () => {
 
   return(
     <StyledUsersWrapper>
-      <StylerUsersList>
+      <StyledUsersList>
         {users?.map(user=><User 
         key={user.login.username}
         fullName={`${user.name.last} ${user.name.first}`}
@@ -51,7 +51,7 @@ export const Users = () => {
         birthDate={user.dob.date}
         registrationDate={user.registered.date}
         />)}
-      </StylerUsersList>
+      </StyledUsersList>
       {isLoading && <Loader />}
     </StyledUsersWrapper>
   );

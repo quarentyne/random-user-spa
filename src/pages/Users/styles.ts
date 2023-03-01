@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ScreenSizes } from "../../shared/helpers/themes";
 
 
 export const StyledUsersWrapper = styled.div`
@@ -6,9 +7,15 @@ export const StyledUsersWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const StylerUsersList = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-row-gap: 20px;
+export const StyledUsersList = styled.ul`
+  display: grid;  
   justify-items: center;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
+
+ 
+  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+  };
 `;
