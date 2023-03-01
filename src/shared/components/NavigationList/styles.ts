@@ -18,6 +18,6 @@ export const StyledNavigationLink = styled(NavLink)`
     opacity: 0.8;
   }
   &.active {
-    color: $grey;
+    color: grey;
   }
 `;
