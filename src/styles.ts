@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
 import "./assets/fonts/Gilroy-Medium.ttf";
-import { ScreenSizes } from "./shared/helpers/themes";
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -13,14 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: Gilroy;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 20px;
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(194,217,252,1) 34%, rgba(0,212,220,1) 100%) no-repeat fixed;
     color: #292D45;
-    @media screen and (min-width: ${ScreenSizes.TABLET}px){    
-    font-size: 20px;    
-    position: sticky;
-    height: 100%;
-  };
+  }
 
   ul[class],
   ol[class] {
