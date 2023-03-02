@@ -33,6 +33,7 @@ export interface IUser {
 export interface IUsersState {
   users: IUser[];
   isLoading: boolean;
+  currentPage: number;
 };
 
 export interface IServerResponse {

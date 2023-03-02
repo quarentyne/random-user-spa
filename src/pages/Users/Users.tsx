@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { User } from "../../modules/Users/components/User/User";
 import { getUsers } from "../../modules/Users/features/actionCreators";
+import { setNextPageNumber } from "../../modules/Users/features/reducer";
 import { usersSelector } from "../../modules/Users/features/selector";
 import { Loader } from "../../shared/components/Loader/Loader";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
@@ -8,21 +9,15 @@ import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { StyledUsersWrapper, StyledUsersList } from "./styles";
 
 export const Users = () => {
-  const {users, isLoading} = useAppSelector(usersSelector);
+  const {users, isLoading, currentPage} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isFetching, setIsFetching] = useState(false);
-
+  
   useEffect(() => {
-    if(!users.length){
+    if(!users.length && !isLoading){
       dispatch(getUsers({amount: 20, page: currentPage}));
+      dispatch(setNextPageNumber());
     };
-
-    if(isFetching){
-      dispatch(getUsers({amount: 10, page: currentPage}));
-      setIsFetching(false);
-    };       
-  }, [dispatch, currentPage, isFetching, users]);
+  }, [dispatch, users, currentPage, isLoading])
 
   useEffect(() => {
     document.addEventListener("scroll", onScroll);
@@ -33,8 +28,8 @@ export const Users = () => {
 
   const onScroll = () => {
     if(document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100 && !isLoading){
-      setCurrentPage(currentPage + 1);
-      setIsFetching(true);
+      dispatch(getUsers({amount: 10, page: currentPage}));
+      dispatch(setNextPageNumber());
     };
   };
 

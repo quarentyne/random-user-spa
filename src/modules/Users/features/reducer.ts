@@ -5,12 +5,17 @@ import { IServerResponse, IUsersState } from "./models";
 const initialState: IUsersState = {
   users: [],
   isLoading: false,
+  currentPage: 1,
 };
 
 const usersSlice = createSlice({
   name: "users",
   initialState,
-  reducers:{},
+  reducers:{
+    setNextPageNumber: (state) => {
+      state.currentPage = state.currentPage + 1;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(getUsers.pending, (state) => {
       state.isLoading = true;
@@ -22,4 +27,5 @@ const usersSlice = createSlice({
   },
 });
 
+export const { setNextPageNumber } = usersSlice.actions;
 export default usersSlice.reducer;
