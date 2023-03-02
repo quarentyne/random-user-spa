@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { ScreenSizes } from "../../../../shared/helpers/themes";
 
 interface IWrapperProps{
   sex: string;
 };
 
 export const StyledUserCardWrapper = styled.div<IWrapperProps>`
-  width: 450px;
+  @media screen and (min-width: ${ScreenSizes.MOBILE}px) { 
+    width: 450px;
+  };   
+
   background-color: ${props => props.sex === "male" ? "#3399ff" : "#ff99ff"};
   cursor: pointer;
   padding: 10px;
@@ -26,6 +30,8 @@ export const StyledUserPersonalInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
+  font-size: 16px;
+  margin-left: 5px;
   >p{
     margin-bottom: 15px;
     display: flex;
@@ -35,4 +41,7 @@ export const StyledUserPersonalInfo = styled.div`
       font-weight: 700;
     }
   }
+  @media screen and (min-width: ${ScreenSizes.MOBILE}px) { 
+    font-size: 20px;
+  };   
 `;

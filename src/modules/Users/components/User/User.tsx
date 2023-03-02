@@ -7,7 +7,11 @@ import { StyledUserCardWrapper, StyledUserMainWrapper, StyledUserPersonalInfo } 
 
 interface IUser {
   fullName: string;
-  avatar: string;
+  avatar: {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  };
   birthDate: string;
   sex: string;
   address: {
@@ -29,14 +33,18 @@ export const User = ({fullName, avatar, birthDate, sex, address, phoneNumber, re
   const dispatch = useAppDispatch();
 
   const onClickHandler = () => {
-    dispatch(setUserInfo({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate}));
+    dispatch(setUserInfo({fullName, avatar: avatar.large, birthDate, sex, address, phoneNumber, registrationDate}));
     navigate("/user-info");
   };
 
   return(
     <StyledUserCardWrapper sex={sex} onClick={onClickHandler}>
       <StyledUserMainWrapper>
-        <img style={{borderRadius: "10px"}} src={avatar} alt="avatar"/>
+        <picture>
+          <source srcSet={avatar.large} media="(min-width: 450px)" />
+          <source srcSet={avatar.medium} media="(max-width: 450px)" />
+          <img src="avatar" alt="avatar" style={{borderRadius: "10px"}}/>
+        </picture>
         <StyledUserPersonalInfo>
           <p><span>{t(`user.name`)}: </span>{fullName}</p>
           <p><span>{t(`user.birthday`)}: </span>{renderDate(new Date(Date.parse(birthDate)))}</p>

@@ -10,7 +10,7 @@ export const StyledSideMenuWrapper = styled.div<IBurgerMenu>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;  
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: ${props => props.isOpen ? 10 : -1};
@@ -22,7 +22,6 @@ export const StyledSideMenuWrapper = styled.div<IBurgerMenu>`
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(230,230,230,0.85) 35%);
     opacity: 1;
     z-index: 1;
-    position: fixed;
     height: 100vh;  
     width: 250px;
   };

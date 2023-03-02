@@ -13,8 +13,11 @@ export const StyledUsersList = styled.ul`
   grid-template-columns: 1fr;
   grid-row-gap: 10px;
 
+  @media screen and (min-width: ${ScreenSizes.LAPTOP_L}px) {
+    grid-template-columns: 1fr 1fr;
+  };
  
-  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
+  @media screen and (min-width: ${ScreenSizes.LAPTOP_EXTRA}px) {
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 20px;
   };

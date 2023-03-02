@@ -41,7 +41,7 @@ export const Users = () => {
         fullName={`${user.name.last} ${user.name.first}`}
         phoneNumber={user.phone}
         address={user.location}
-        avatar={user.picture.large}
+        avatar={user.picture}
         sex={user.gender}
         birthDate={user.dob.date}
         registrationDate={user.registered.date}
