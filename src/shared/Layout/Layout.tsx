@@ -10,7 +10,7 @@ export const Layout = () => {
 
   return(
     <>
-      <Header onClick={toggleSideMenuVisibility}/>
+      <Header onBurgerClick={toggleSideMenuVisibility}/>
       <SideMenu isVisible={isVisible}/>
       <StyledLayoutContainer>
         <Outlet />

@@ -9,7 +9,7 @@ export const Login = () => {
   const {t} = useTranslation();
 
   useEffect(()=>{
-    if(sessionStorage.getItem("login") === "true"){
+    if(sessionStorage.getItem("login")) {
       navigate("/home", {replace: true});
     };
   }, [navigate]); 

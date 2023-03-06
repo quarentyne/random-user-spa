@@ -1,9 +1,24 @@
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import { renderDate } from "../../../../shared/helpers/dateRender";
-import { useAppDispatch } from "../../../../shared/hooks/useAppDispatch";
-import { setUserInfo } from "../../../UserInfo/features/reducer";
 import { StyledUserCardWrapper, StyledUserMainWrapper, StyledUserPersonalInfo } from "./styles";
+
+interface IUserInfo {
+  fullName: string;
+  avatar: string;
+  birthDate: string;
+  sex: string;
+  address: {
+    street: {
+      number: number;
+      name: string;
+    };
+    state: string,
+    city: string;
+    country: string;
+  };
+  phoneNumber: string;
+  registrationDate: string;
+};
 
 interface IUser {
   fullName: string;
@@ -25,20 +40,17 @@ interface IUser {
   };
   phoneNumber: string;
   registrationDate: string;
+  onClickHandler: (user: IUserInfo) => void;
 };
 
-export const User = ({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate}: IUser) => {
+export const User = ({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate, onClickHandler}: IUser) => {
   const {t} = useTranslation();
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
-  const onClickHandler = () => {
-    dispatch(setUserInfo({fullName, avatar: avatar.large, birthDate, sex, address, phoneNumber, registrationDate}));
-    navigate("/user-info");
-  };
 
   return(
-    <StyledUserCardWrapper sex={sex} onClick={onClickHandler}>
+    <StyledUserCardWrapper 
+      sex={sex} 
+      onClick={onClickHandler.bind(null, {fullName, avatar: avatar.large, sex, address, phoneNumber, registrationDate, birthDate } )}
+    >
       <StyledUserMainWrapper>
         <picture>
           <source srcSet={avatar.large} media="(min-width: 450px)" />

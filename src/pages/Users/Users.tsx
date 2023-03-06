@@ -1,20 +1,41 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { setUserInfo } from "../../modules/UserInfo/features/reducer";
 import { User } from "../../modules/Users/components/User/User";
 import { getUsers } from "../../modules/Users/features/actionCreators";
 import { updatePageNumber } from "../../modules/Users/features/reducer";
 import { usersSelector } from "../../modules/Users/features/selector";
-import { Loader } from "../../shared/components/Loader/Loader";
+import { LoadCircle } from "../../shared/components/LoadCircle/LoadCircle";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { StyledUsersWrapper, StyledUsersList } from "./styles";
 
+interface IUserInfo {
+  fullName: string;
+  avatar: string;
+  birthDate: string;
+  sex: string;
+  address: {
+    street: {
+      number: number;
+      name: string;
+    };
+    state: string,
+    city: string;
+    country: string;
+  };
+  phoneNumber: string;
+  registrationDate: string;
+};
+
 export const Users = () => {
   const {users, isLoading, currentPage} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   
   useEffect(() => {
     if(!users.length && !isLoading) {
-      dispatch(getUsers({amount: 20, page: currentPage}));
+      dispatch(getUsers({requiredAmount: 20, page: currentPage}));
     }
   }, [dispatch, currentPage, users, isLoading])
 
@@ -25,13 +46,16 @@ export const Users = () => {
     });
   });
 
-  console.log(currentPage)
-
   const onScroll = () => {
     if(document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100 && !isLoading) {
       dispatch(updatePageNumber());
-      dispatch(getUsers({amount: 10, page: currentPage}));
+      dispatch(getUsers({requiredAmount: 10, page: currentPage}));
     };
+  };
+
+  const onClickHandler = (user: IUserInfo) => {
+    dispatch(setUserInfo(user));
+    navigate("/user-info");
   };
 
   return(
@@ -46,9 +70,10 @@ export const Users = () => {
         sex={user.gender}
         birthDate={user.dob.date}
         registrationDate={user.registered.date}
+        onClickHandler={onClickHandler}
         />)}
       </StyledUsersList>
-      {isLoading && <Loader />}
+      {isLoading && <LoadCircle />}
     </StyledUsersWrapper>
   );
 }

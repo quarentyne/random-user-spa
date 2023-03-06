@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export const ProtectedRoute = () => {
   const isAuthorized = sessionStorage.getItem("login");
-  if(isAuthorized === "false" || !isAuthorized){
+  if(!isAuthorized){
     return <Navigate to="/login" replace />;
   };
 

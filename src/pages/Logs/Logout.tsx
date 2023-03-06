@@ -7,7 +7,7 @@ export const Logout = () => {
   const {t} = useTranslation();
 
   const logout = () => {
-    sessionStorage.setItem('login', 'false');
+    sessionStorage.setItem("login", "");
     navigate("/login", {replace: true});
   };
 
