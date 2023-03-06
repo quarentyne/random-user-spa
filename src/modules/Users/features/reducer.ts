@@ -12,7 +12,7 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers:{
-    setNextPageNumber: (state) => {
+    updatePageNumber: (state) => {
       state.currentPage = state.currentPage + 1;
     },
   },
@@ -27,5 +27,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setNextPageNumber } = usersSlice.actions;
+export const { updatePageNumber } = usersSlice.actions;
 export default usersSlice.reducer;

@@ -1,3 +1,4 @@
-import { RootState } from "../../../store/store";
+// import { RootState } from "../../../store/store";
 
-export const loginStatusSelector = (state: RootState) => state.loginStatus;
+// export const loginStatusSelector = (state: RootState) => state.loginStatus;
+export {}

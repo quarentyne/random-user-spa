@@ -1,75 +1,55 @@
 import styled from "styled-components";
-import { ScreenSizes } from "../../../shared/helpers/themes";
 
-export const StyledUserInfoContainer = styled.div`
-  width: 500px;
-  background-color: white;
-  border-radius: 15px;
-  padding: 15px 0;
+export const StyledUserWrapper = styled.div`
+  width: 520px;
+  border: 1px solid #D8DBDD;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
+  margin: 5px;
+`;
+
+export const StyledUserInfoCard = styled.div`  
+  padding: 30px;
+`;
+
+export const StyledUserInfoMain = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
-    padding: 30px 0;
-  };
+  flex-direction: column;
+  margin-top: 30px;
 `;
 
-export const StyledUserInfoWrapper = styled.div`
-  width: 65%;
-  text-align: center;
-`;
-
-export const StyledAvatarBlock = styled.img`
-  display: block;
-  margin: 0 auto;
+export const StyledUserImage = styled.img`
   border-radius: 50%;
-  margin-bottom: 10px;
+`;
 
-  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
-    margin-bottom: 20px;
+export const StyledUserName = styled.h4`
+  line-height: 1.235;
+  color: #11142d;
+`;
+
+export const StyledDivider = styled.div`
+  position: relative;
+  &:after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #ecf0f2;
+    position: absolute;
+    top: 0;
+    left: 0;
   };
 `;
 
-export const StyledGeneralInformationBlock = styled.div`  
-  margin-bottom: 15px;
-  >p{
-    display: flex;    
-    justify-content: space-between;
-    margin-bottom: 5px;
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 18px;
-  };
-
-  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
-    margin-bottom: 25px;
-    >p{
-      font-size: 20px;
-    }
-  };
+export const StyledInfoTitle = styled.span`
+  color: #777e89;
+  font-size: 16px;
 `;
 
-export const StyledAdditionalInfoBlock = styled.div`
-  color: rgba(0, 0, 0, 0.7);
-`;
-
-export const StyledInfoItem = styled.p`
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
-    font-size: 20px;
-  };
-`;
-
-export const StyledBlockAddress = styled.div``;
-
-export const StyledBlockLabel = styled.p`
-  margin: 8px 0;
-  font-size: 22px;
-  color: rgba(0, 0, 0, 1);
-  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
-    font-size: 24px;
-  };
+export const StyledInfoText = styled.h6`
+  color: #11142d;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 `;

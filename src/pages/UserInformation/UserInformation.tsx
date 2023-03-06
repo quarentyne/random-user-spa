@@ -1,24 +1,24 @@
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { StyledInfoWrapper } from "./styles";
 import warn from "../../assets/svg/warn.svg";
-import { removeUserInfo } from "../../modules/UserInfo/features/reducer";
+// import { removeUserInfo } from "../../modules/UserInfo/features/reducer";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
-import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
+// import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { userInfoSelector } from "../../modules/UserInfo/features/selector";
 import { UserInfo } from "../../modules/UserInfo/components/UserInfo";
 
 
 export const UserInformation = () => {
   const {t} = useTranslation();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const { user } = useAppSelector(userInfoSelector); 
 
-  useEffect(() => {
-    return () => {
-      dispatch(removeUserInfo());
-    }
-  }, [dispatch]);
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(removeUserInfo());
+  //   }
+  // }, [dispatch]);
 
   if(!user){
     return(

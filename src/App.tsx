@@ -1,13 +1,11 @@
 import { RouterConfig } from './router/Config';
-import { MainContainer, GlobalStyle } from './styles';
+import { GlobalStyle } from './styles';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <MainContainer>
         <RouterConfig />
-      </MainContainer>    
     </>
   );
 }

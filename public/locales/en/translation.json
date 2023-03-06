@@ -20,14 +20,15 @@
     "contacts": "Contacts",
     "phoneNumber": "Phone number",
     "address": "Address",
-    "city": "City",
-    "state": "State",
-    "country": "Country",
-    "street": "Street",
     "gender": "Gender"
   },
   "home": {
     "welcome": "Welcome to random-user-spa!",
-    "howToUse": "Here you have access to thousands of platform users from different parts of the world. To access the list, simply go to the \"Users\" tab"
+    "about": "Users from different countries of the world have already joined the platform.",
+    "howToUse": "To access the list, simply go to the \"Users\" tab"
+  },
+  "notfound": {
+    "button": "Back to Home",
+    "subtitle": "Page not found!"
   }
 }

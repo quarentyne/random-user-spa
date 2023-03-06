@@ -3,29 +3,47 @@ import styled from "styled-components";
 import { ScreenSizes } from "../../helpers/themes";
 
 export const StyledNavigationList = styled.ul`
-  display: flex;
+  display: flex;  
   align-items: center;
   flex-direction: column;
+`;
+
+export const StyledNavigationItem = styled.li`
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  &:not(:last-child){
+    margin-bottom: 15px;
+  };
 `;
 
 export const StyledNavigationLink = styled(NavLink)`
   color: black;
   font-size: 20px;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding-left: 10px;
+  >span{
+    margin-left: 10px;
+  }
 
   &:not(:last-child){
     margin-bottom: 15px;
   }
   :hover {
-    color: $black;
-    opacity: 0.8;
+    background-color: #F5F5F5;
   }
   &.active {
-    color: grey;
+    background-color: #1A9BFC;
+    color: white;
   }
   
   @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
-    font-size: 25px;
+    font-size: 20px;
     &:not(:last-child){
       margin-bottom: 20px;
     };

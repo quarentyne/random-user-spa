@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { User } from "../../modules/Users/components/User/User";
 import { getUsers } from "../../modules/Users/features/actionCreators";
-import { setNextPageNumber } from "../../modules/Users/features/reducer";
+import { updatePageNumber } from "../../modules/Users/features/reducer";
 import { usersSelector } from "../../modules/Users/features/selector";
 import { Loader } from "../../shared/components/Loader/Loader";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
@@ -13,11 +13,10 @@ export const Users = () => {
   const dispatch = useAppDispatch();
   
   useEffect(() => {
-    if(!users.length && !isLoading){
+    if(!users.length && !isLoading) {
       dispatch(getUsers({amount: 20, page: currentPage}));
-      dispatch(setNextPageNumber());
-    };
-  }, [dispatch, users, currentPage, isLoading])
+    }
+  }, [dispatch, currentPage, users, isLoading])
 
   useEffect(() => {
     document.addEventListener("scroll", onScroll);
@@ -26,10 +25,12 @@ export const Users = () => {
     });
   });
 
+  console.log(currentPage)
+
   const onScroll = () => {
-    if(document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100 && !isLoading){
+    if(document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100 && !isLoading) {
+      dispatch(updatePageNumber());
       dispatch(getUsers({amount: 10, page: currentPage}));
-      dispatch(setNextPageNumber());
     };
   };
 
