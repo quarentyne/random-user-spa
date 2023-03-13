@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { PAGINATION_CONSTANTS } from "../../assets/constants/pagination";
 import { setUserInfo } from "../../modules/UserInfo/features/reducer";
 import { User } from "../../modules/Users/components/User/User";
 import { getUsers } from "../../modules/Users/features/actionCreators";
@@ -35,7 +36,7 @@ export const Users = () => {
   
   useEffect(() => {
     if(!users.length && !isLoading) {
-      dispatch(getUsers({requiredAmount: 20, page: currentPage}));
+      dispatch(getUsers({requiredAmount: PAGINATION_CONSTANTS.PRELOAD, page: currentPage}));
     }
   }, [dispatch, currentPage, users, isLoading])
 
@@ -49,7 +50,7 @@ export const Users = () => {
   const onScroll = () => {
     if(document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100 && !isLoading) {
       dispatch(updatePageNumber());
-      dispatch(getUsers({requiredAmount: 10, page: currentPage}));
+      dispatch(getUsers({requiredAmount: PAGINATION_CONSTANTS.UPLOAD, page: currentPage}));
     };
   };
 
