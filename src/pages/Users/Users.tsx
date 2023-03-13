@@ -1,10 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { PAGINATION_CONSTANTS } from "../../assets/constants/pagination";
 import { setUserInfo } from "../../modules/UserInfo/features/reducer";
 import { User } from "../../modules/Users/components/User/User";
 import { getUsers } from "../../modules/Users/features/actionCreators";
-import { updatePageNumber } from "../../modules/Users/features/reducer";
 import { usersSelector } from "../../modules/Users/features/selector";
 import { LoadCircle } from "../../shared/components/LoadCircle/LoadCircle";
 import { ROUTES_PATHS } from "../../shared/constants/routes";
@@ -34,6 +33,7 @@ export const Users = () => {
   const {users, isLoading, currentPage} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const contentRef = useRef<HTMLDivElement>(null)
   
   useEffect(() => {
     if(!users.length && !isLoading) {
@@ -49,8 +49,10 @@ export const Users = () => {
   });
 
   const onScroll = () => {
-    if(document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100 && !isLoading) {
-      dispatch(updatePageNumber());
+    if (!contentRef.current) {
+      return false;
+    }
+    if(contentRef.current.getBoundingClientRect().bottom <= window.innerHeight && !isLoading){
       dispatch(getUsers({requiredAmount: PAGINATION_CONSTANTS.UPLOAD, page: currentPage}));
     };
   };
@@ -61,7 +63,7 @@ export const Users = () => {
   };
 
   return(
-    <StyledUsersWrapper>
+    <StyledUsersWrapper ref={contentRef}>
       <StyledUsersList>
         {users?.map(user=><User 
         key={user.login.username}

@@ -11,11 +11,7 @@ const initialState: IUsersState = {
 const usersSlice = createSlice({
   name: "users",
   initialState,
-  reducers:{
-    updatePageNumber: (state) => {
-      state.currentPage = state.currentPage + 1;
-    },
-  },
+  reducers:{},
   extraReducers: builder => {
     builder.addCase(getUsers.pending, (state) => {
       state.isLoading = true;
@@ -23,9 +19,9 @@ const usersSlice = createSlice({
     builder.addCase(getUsers.fulfilled, (state, action: PayloadAction<IServerResponse>) => {
       state.isLoading = false;
       state.users = [...state.users, ...action.payload.results];
+      state.currentPage = state.currentPage + 1;
     });
   },
 });
 
-export const { updatePageNumber } = usersSlice.actions;
 export default usersSlice.reducer;
