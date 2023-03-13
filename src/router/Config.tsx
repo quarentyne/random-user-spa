@@ -1,10 +1,23 @@
-import { useRoutes } from 'react-router-dom';
-import { routerConfig } from '../shared/constants/routes';
+// import { useRoutes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { loginStatusSelector } from '../modules/Login/features/selector';
+import { routes, ROUTES_PATHS } from '../shared/constants/routes';
+import { useAppSelector } from '../shared/hooks/useAppSelector';
+import { Layout } from '../shared/Layout/Layout';
 
 export const RouterConfig = () => {
-  const router = useRoutes(routerConfig);
+  const {isAuthorized} = useAppSelector(loginStatusSelector);
 
   return (
-    <>{router}</>  
+    <Routes>
+      <Route element={<Layout />}>
+        {routes.map(({path, element, isProtected}, key) => <Route 
+          path={path} 
+          element={isProtected 
+            ? isAuthorized ? element : <Navigate to={ROUTES_PATHS.LOGIN} replace /> 
+            : element} 
+          key={key} />)}
+      </Route>
+    </Routes>
   );
 };

@@ -1,12 +1,10 @@
-import { Navigate, RouteObject } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Home } from '../../pages/Home/Home';
 import { Login } from '../../pages/Logs/Login';
 import { Logout } from '../../pages/Logs/Logout';
 import { Notfound } from '../../pages/Notfound/Notfound';
 import { UserInformation } from '../../pages/UserInformation/UserInformation';
 import { Users } from '../../pages/Users/Users';
-import { ProtectedRoute } from '../../router/ProtectedRoute';
-import { Layout } from '../Layout/Layout';
 
 export enum ROUTES_PATHS {
   BASE = "/",
@@ -18,43 +16,47 @@ export enum ROUTES_PATHS {
   NOT_FOUND = "*",
 };
 
-export const routerConfig: RouteObject[] = [
+interface IRoute {
+  path: string;
+  element: React.ReactNode;
+  isProtected: boolean;
+  children?: IRoute[];
+}
+
+export const routes: IRoute[] = [
   {
     path: ROUTES_PATHS.BASE,
-    element: <Navigate to={ROUTES_PATHS.HOME} replace/>
+    isProtected: false,
+    element: <Navigate to={ROUTES_PATHS.HOME} replace/>,
   },
   {
     path: ROUTES_PATHS.NOT_FOUND,
-    element: <Notfound />
+    element: <Notfound />,
+    isProtected: false,
   },
   {
-    element: <Layout />,
-    children: [
-      {
-        path: ROUTES_PATHS.LOGIN,
-        element: <Login />,
-      },
-      {
-        element: <ProtectedRoute />,
-        children: [
-          {
-            path: ROUTES_PATHS.HOME,
-            element: <Home />,
-          },
-          {
-            path: ROUTES_PATHS.USERS,
-            element: <Users />
-          },
-          {
-            path: ROUTES_PATHS.USER_INFO,
-            element: <UserInformation />
-          },
-          {
-            path: ROUTES_PATHS.LOGOUT,
-            element: <Logout />,
-          },
-        ],
-      },
-    ],
-  },  
+    path: ROUTES_PATHS.LOGIN,
+    element: <Login />,
+    isProtected: false,
+  },
+  {
+    path: ROUTES_PATHS.HOME,
+    element: <Home />,
+    isProtected: true,
+  },
+  {
+    path: ROUTES_PATHS.USERS,
+    element: <Users />,
+    isProtected: true,
+  },
+  {
+    path: ROUTES_PATHS.USER_INFO,
+    element: <UserInformation />,
+    isProtected: true,
+  },
+  {
+    path: ROUTES_PATHS.LOGOUT,
+    element: <Logout />,
+    isProtected: true,
+  },
 ];
