@@ -7,6 +7,7 @@ import { getUsers } from "../../modules/Users/features/actionCreators";
 import { updatePageNumber } from "../../modules/Users/features/reducer";
 import { usersSelector } from "../../modules/Users/features/selector";
 import { LoadCircle } from "../../shared/components/LoadCircle/LoadCircle";
+import { ROUTES_PATHS } from "../../shared/constants/routes";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { StyledUsersWrapper, StyledUsersList } from "./styles";
@@ -56,7 +57,7 @@ export const Users = () => {
 
   const onClickHandler = (user: IUserInfo) => {
     dispatch(setUserInfo(user));
-    navigate("/user-info");
+    navigate(ROUTES_PATHS.USER_INFO);
   };
 
   return(
