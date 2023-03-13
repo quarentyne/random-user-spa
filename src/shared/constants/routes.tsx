@@ -1,4 +1,3 @@
-// import { ReactNode } from 'react';
 import { Navigate, RouteObject } from 'react-router-dom';
 import { Home } from '../../pages/Home/Home';
 import { Login } from '../../pages/Logs/Login';
