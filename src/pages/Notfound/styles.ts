@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { ScreenSizes } from "../../shared/constants/themes";
 
 export const StyledErrorWrapper = styled.div`
-  height: 100%;
-  position: fixed;
-  width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: 5%;
 `;
 
