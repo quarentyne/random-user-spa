@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ScreenSizes } from "../../../shared/constants/themes";
 
 export const StyledUserWrapper = styled.div`
   width: 520px;
@@ -7,6 +8,10 @@ export const StyledUserWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 5px;
+  margin-top: 25vh;
+  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
+    margin: 5px;    
+  }
 `;
 
 export const StyledUserInfoCard = styled.div`  

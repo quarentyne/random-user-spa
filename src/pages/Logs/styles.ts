@@ -6,7 +6,6 @@ export const StyledLoginWrapper = styled.div`
   left: 0;
   background-color: rgba(64, 76, 84, 0.7);
   z-index: 100;
-  margin-top: -75px;
 `;
 
 export const StyledLogButton = styled.button`

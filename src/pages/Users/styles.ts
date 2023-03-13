@@ -3,8 +3,12 @@ import { ScreenSizes } from "../../shared/constants/themes";
 
 
 export const StyledUsersWrapper = styled.div`
+  margin: 12vh auto;
   width: 96%;
-  margin: 0 auto;
+
+  @media screen and (min-width: ${ScreenSizes.LAPTOP_S}px) {
+    margin-top: 1vh;
+  }
 `;
 
 export const StyledUsersList = styled.ul`
