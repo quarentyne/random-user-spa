@@ -1,5 +1,5 @@
 // import { ReactNode } from 'react';
-import { RouteObject } from 'react-router-dom';
+import { Navigate, RouteObject } from 'react-router-dom';
 import { Home } from '../../pages/Home/Home';
 import { Login } from '../../pages/Logs/Login';
 import { Logout } from '../../pages/Logs/Logout';
@@ -20,6 +20,10 @@ export enum ROUTES_PATHS {
 };
 
 export const routerConfig: RouteObject[] = [
+  {
+    path: ROUTES_PATHS.BASE,
+    element: <Navigate to={ROUTES_PATHS.HOME} replace/>
+  },
   {
     path: ROUTES_PATHS.NOT_FOUND,
     element: <Notfound />
