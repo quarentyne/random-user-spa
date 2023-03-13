@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ScreenSizes } from "../../shared/helpers/themes";
+import { ScreenSizes } from "../../shared/constants/themes";
 
 export const StyledErrorWrapper = styled.div`
   height: 100%;

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { ScreenSizes } from "../../helpers/themes";
+import { ScreenSizes } from "../../constants/themes";
 
 export const StyledNavigationList = styled.ul`
   display: flex;  

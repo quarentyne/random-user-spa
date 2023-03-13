@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ScreenSizes } from "../../../../shared/helpers/themes";
+import { ScreenSizes } from "../../../../shared/constants/themes";
 
 interface IWrapperProps{
   sex: string;

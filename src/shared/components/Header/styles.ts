@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ScreenSizes } from "../../helpers/themes";
+import { ScreenSizes } from "../../constants/themes";
 
 export const StyledHeader = styled.header`
   display: flex;

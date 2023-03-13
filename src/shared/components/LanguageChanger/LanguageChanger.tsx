@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
-import { Languages } from "../../helpers/themes";
+import { Languages } from "../../constants/themes";
 import { StyledLanguageChangerSelect, StyledLanguageChangerWrapper } from "./styles";
 
 export const LanguageChanger = () => {
