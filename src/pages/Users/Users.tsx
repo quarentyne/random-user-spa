@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PAGINATION_CONSTANTS } from "../../assets/constants/pagination";
 import { setUserInfo } from "../../modules/UserInfo/features/reducer";
@@ -33,27 +33,35 @@ export const Users = () => {
   const {users, isLoading, currentPage} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const contentRef = useRef<HTMLDivElement>(null)
-  
-  useEffect(() => {
-    if(!users.length && !isLoading) {
-      dispatch(getUsers({requiredAmount: PAGINATION_CONSTANTS.PRELOAD, page: currentPage}));
-    }
-  }, [dispatch, currentPage, users, isLoading])
+  const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
-    document.addEventListener("scroll", onScroll);
+    if(fetching && !isLoading){
+      const fetchingParams = {
+        requiredAmount: PAGINATION_CONSTANTS.UPLOAD, 
+        page: currentPage,
+      };
+
+      if(!users.length) {
+        fetchingParams.requiredAmount = PAGINATION_CONSTANTS.PRELOAD;
+      };
+      
+      dispatch(getUsers(fetchingParams));      
+      setFetching(false);
+    };
+  }, [fetching, isLoading, users, dispatch, currentPage]);
+
+  useEffect(() => {
+    document.addEventListener("scroll", scrollHandler);
     return (() => {
-      document.removeEventListener("scroll", onScroll);
+      document.removeEventListener("scroll", scrollHandler);
     });
   });
 
-  const onScroll = () => {
-    if (!contentRef.current) {
-      return false;
-    }
-    if(contentRef.current.getBoundingClientRect().bottom <= window.innerHeight && !isLoading){
-      dispatch(getUsers({requiredAmount: PAGINATION_CONSTANTS.UPLOAD, page: currentPage}));
+  const scrollHandler = (e: Event) => {
+    const target = e.target as Document;
+    if(target.documentElement.scrollHeight - target.documentElement.scrollTop - window.innerHeight < 50){
+      setFetching(true);
     };
   };
 
@@ -63,7 +71,7 @@ export const Users = () => {
   };
 
   return(
-    <StyledUsersWrapper ref={contentRef}>
+    <StyledUsersWrapper>
       <StyledUsersList>
         {users?.map(user=><User 
         key={user.login.username}
