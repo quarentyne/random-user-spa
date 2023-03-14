@@ -1,4 +1,3 @@
-// import { useRoutes } from 'react-router-dom';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { loginStatusSelector } from '../modules/Login/features/selector';
 import { routes, ROUTES_PATHS } from '../shared/constants/routes';
@@ -14,7 +13,7 @@ export const RouterConfig = () => {
         {routes.map(({path, element, isProtected}, key) => <Route 
           path={path} 
           element={isProtected 
-            ? isAuthorized ? element : <Navigate to={ROUTES_PATHS.LOGOUT} replace /> 
+            ? isAuthorized ? element : <Navigate to={ROUTES_PATHS.LOGIN} replace /> 
             : element} 
           key={key} />)}
       </Route>

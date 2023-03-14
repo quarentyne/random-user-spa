@@ -37,7 +37,7 @@ export const NavigationList = () => {
         </StyledNavigationLink>
       </StyledNavigationItem>
       <StyledNavigationItem>
-        <StyledNavigationLink to={ROUTES_PATHS.LOGOUT}>
+        <StyledNavigationLink to={ROUTES_PATHS.LOGIN}>
           <img src={logout} alt="logout" width="30px"/>
           <span>
             {t(`sideMenu.logout`)}

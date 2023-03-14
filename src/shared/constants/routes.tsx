@@ -10,7 +10,7 @@ export enum ROUTES_PATHS {
   HOME = "/home",
   USERS = "/users",
   USER_INFO = "/user-info",
-  LOGOUT = "/logout",
+  LOGIN = "/login",
   NOT_FOUND = "*",
 };
 
@@ -48,7 +48,7 @@ export const routes: IRoute[] = [
     isProtected: true,
   },
   {
-    path: ROUTES_PATHS.LOGOUT,
+    path: ROUTES_PATHS.LOGIN,
     element: <Authorization />,
     isProtected: false,
   },
