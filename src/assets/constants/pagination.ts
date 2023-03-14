@@ -1,4 +1,0 @@
-export enum PAGINATION_CONSTANTS {
-  PRELOAD = 20,
-  UPLOAD = 10,
-}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { PAGINATION_CONSTANTS } from "../../assets/constants/pagination";
+import { PAGE_ELEMENTS } from "../../shared/constants/pagination";
 import { setUserInfo } from "../../modules/UserInfo/features/reducer";
 import { User } from "../../modules/Users/components/User/User";
 import { getUsers } from "../../modules/Users/features/actionCreators";
@@ -37,16 +37,12 @@ export const Users = () => {
 
   useEffect(() => {
     if(fetching && !isLoading){
-      const fetchingParams = {
-        requiredAmount: PAGINATION_CONSTANTS.UPLOAD, 
-        page: currentPage,
-      };
-
+      
       if(!users.length) {
-        fetchingParams.requiredAmount = PAGINATION_CONSTANTS.PRELOAD;
+        dispatch(getUsers({ requiredAmount: PAGE_ELEMENTS.PER_PAGE, page: currentPage }));
       };
       
-      dispatch(getUsers(fetchingParams));      
+      dispatch(getUsers({ requiredAmount: PAGE_ELEMENTS.PER_PAGE, page: currentPage }));      
       setFetching(false);
     };
   }, [fetching, isLoading, users, dispatch, currentPage]);
