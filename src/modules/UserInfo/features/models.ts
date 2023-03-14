@@ -19,3 +19,5 @@ export interface IUser {
 export interface IUserInfoState {
   user: IUser | null;
 };
+
+export const sliceName = "userInfo";

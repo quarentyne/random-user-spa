@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser, IUserInfoState } from "./models";
+import { IUser, IUserInfoState, sliceName } from "./models";
 
 const initialState: IUserInfoState = {
   user: null,
 };
 
 const userInfoSlice = createSlice({
-  name: "userInfo",
+  name: sliceName,
   initialState,
   reducers: {
     setUserInfo: (state, action: PayloadAction<IUser>) => {

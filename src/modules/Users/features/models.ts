@@ -39,3 +39,14 @@ export interface IUsersState {
 export interface IServerResponse {
   results: IUser[];
 };
+
+export interface IGetUsersParams{
+  requiredAmount: number,
+  page: number,
+};
+
+export const sliceName = "users";
+
+export enum actionsTypes {
+  GET_USERS = "/getUsers",
+};
