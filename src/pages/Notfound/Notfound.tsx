@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { ROUTES_PATHS } from "../../shared/constants/routes";
 import { StyledErrorButton, StyledErrorSubtitle, StyledErrorTitle, StyledErrorWrapper } from "./styles";
 
 export const Notfound = () => {
@@ -8,7 +9,7 @@ export const Notfound = () => {
     <StyledErrorWrapper>
       <StyledErrorTitle>404</StyledErrorTitle>
       <StyledErrorSubtitle>{t(`notfound.subtitle`)}</StyledErrorSubtitle>
-      <StyledErrorButton to="home">{t(`notfound.button`)}</StyledErrorButton>
+      <StyledErrorButton to={ROUTES_PATHS.HOME}>{t(`notfound.button`)}</StyledErrorButton>
     </StyledErrorWrapper>
   );
 };

@@ -1,7 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { Home } from '../../pages/Home/Home';
-import { Login } from '../../pages/Logs/Login';
-import { Logout } from '../../pages/Logs/Logout';
+import { Authorization } from '../../pages/Authorization/Authorization';
 import { Notfound } from '../../pages/Notfound/Notfound';
 import { UserInformation } from '../../pages/UserInformation/UserInformation';
 import { Users } from '../../pages/Users/Users';
@@ -11,8 +10,7 @@ export enum ROUTES_PATHS {
   HOME = "/home",
   USERS = "/users",
   USER_INFO = "/user-info",
-  LOGIN = "/login",
-  LOGOUT = "logout",
+  LOGOUT = "/logout",
   NOT_FOUND = "*",
 };
 
@@ -35,11 +33,6 @@ export const routes: IRoute[] = [
     isProtected: false,
   },
   {
-    path: ROUTES_PATHS.LOGIN,
-    element: <Login />,
-    isProtected: false,
-  },
-  {
     path: ROUTES_PATHS.HOME,
     element: <Home />,
     isProtected: true,
@@ -56,7 +49,7 @@ export const routes: IRoute[] = [
   },
   {
     path: ROUTES_PATHS.LOGOUT,
-    element: <Logout />,
-    isProtected: true,
+    element: <Authorization />,
+    isProtected: false,
   },
 ];

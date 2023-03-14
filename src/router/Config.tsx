@@ -14,7 +14,7 @@ export const RouterConfig = () => {
         {routes.map(({path, element, isProtected}, key) => <Route 
           path={path} 
           element={isProtected 
-            ? isAuthorized ? element : <Navigate to={ROUTES_PATHS.LOGIN} replace /> 
+            ? isAuthorized ? element : <Navigate to={ROUTES_PATHS.LOGOUT} replace /> 
             : element} 
           key={key} />)}
       </Route>

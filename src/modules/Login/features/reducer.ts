@@ -10,7 +10,8 @@ const loginStatusSlice = createSlice({
   initialState,
   reducers: {
     authorize: (state) => {
-      state.isAuthorized = !state.isAuthorized
+      state.isAuthorized = !state.isAuthorized;
+      localStorage.setItem("login", state.isAuthorized ? "true" : "");
     },
   },
 });
