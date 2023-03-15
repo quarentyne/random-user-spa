@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getUsers } from "./actionCreators";
-import { IServerResponse, IUsersState } from "./models";
+import { IServerResponse, IUsersState, USERS_SLICE_NAME } from "./models";
 
 const initialState: IUsersState = {
   users: [],
@@ -9,7 +9,7 @@ const initialState: IUsersState = {
 };
 
 const usersSlice = createSlice({
-  name: "user",
+  name: USERS_SLICE_NAME,
   initialState,
   reducers:{},
   extraReducers: builder => {

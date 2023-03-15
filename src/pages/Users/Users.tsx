@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { USERS_PER_PAGE } from "../../shared/constants/paginations";
-import { setUserInfo } from "../../modules/UserInfo/features/reducer";
+import { setUserInfo } from "../../modules/UserInfo/features/userInfoSlice";
 import { User } from "../../modules/Users/components/User/User";
 import { getUsers } from "../../modules/Users/features/actionCreators";
 import { usersSelector } from "../../modules/Users/features/selector";

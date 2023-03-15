@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { authorize } from "../../modules/Login/features/reducer";
+import { authorize } from "../../modules/Login/features/loginStatusSlice";
 import { loginStatusSelector } from "../../modules/Login/features/selector";
 import { ROUTES_PATHS } from "../../shared/constants/routes";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
