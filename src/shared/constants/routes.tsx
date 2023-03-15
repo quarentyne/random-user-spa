@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { Home } from '../../pages/Home/Home';
-import { Authorization } from '../../pages/Authorization/Authorization';
+import { Login } from '../../pages/Login/Login';
 import { Notfound } from '../../pages/Notfound/Notfound';
 import { UserInformation } from '../../pages/UserInformation/UserInformation';
 import { Users } from '../../pages/Users/Users';
@@ -49,7 +49,7 @@ export const routes: IRoute[] = [
   },
   {
     path: ROUTES_PATHS.LOGIN,
-    element: <Authorization />,
+    element: <Login />,
     isProtected: false,
   },
 ];

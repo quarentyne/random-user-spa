@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { StyledLogButton, StyledLogBlock } from "./styles";
 
-export const Authorization = () => {
+export const Login = () => {
   const navigate = useNavigate();
   const {t} = useTranslation();
   const dispatch = useAppDispatch();
