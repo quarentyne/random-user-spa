@@ -45,4 +45,4 @@ export interface IGetUsersParams{
   page: number,
 };
 
-export const thunkPrefix = "users/";
+export const THUNK_PREFIX = "users/";
