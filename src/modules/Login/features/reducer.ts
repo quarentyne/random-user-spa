@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ILoginStatus, sliceName } from "./models";
+import { ILoginStatus } from "./models";
 
 const initialState: ILoginStatus = {
   isAuthorized: localStorage.getItem("login") ? true : false,
 };
 
 const loginStatusSlice = createSlice({
-  name: sliceName,
+  name: "loginStatus",
   initialState,
   reducers: {
     authorize: (state) => {

@@ -45,8 +45,4 @@ export interface IGetUsersParams{
   page: number,
 };
 
-export const sliceName = "users";
-
-export enum actionsTypes {
-  GET_USERS = "/getUsers",
-};
+export const thunkPrefix = "users/";

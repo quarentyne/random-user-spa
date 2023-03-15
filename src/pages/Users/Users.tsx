@@ -33,18 +33,18 @@ export const Users = () => {
   const {users, isLoading, currentPage} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [fetching, setFetching] = useState(true);
+  const [fetching, setFetching] = useState(false);
 
   useEffect(() => {
-    if(fetching && !isLoading){
-      
-      if(!users.length) {
-        dispatch(getUsers({ requiredAmount: usersPerPage, page: currentPage + 1 }));
-      };
-      
+    if(fetching && !isLoading){      
       dispatch(getUsers({ requiredAmount: usersPerPage, page: currentPage }));      
       setFetching(false);
+    };    
+      
+    if((!users.length || users.length === usersPerPage) && !isLoading) {
+      dispatch(getUsers({ requiredAmount: usersPerPage, page: currentPage }));
     };
+
   }, [fetching, isLoading, users, dispatch, currentPage]);
 
   useEffect(() => {
