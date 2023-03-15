@@ -1,4 +1,4 @@
-export interface IUser {
+export interface IUserInfo {
   fullName: string;
   avatar: string;
   birthDate: string;
@@ -16,8 +16,12 @@ export interface IUser {
   registrationDate: string;
 };
 
-export interface IUserInfoState {
-  user: IUser | null;
+interface IUserInfoState {
+  user: IUserInfo | null;
+};
+
+export const initialState: IUserInfoState = {
+  user: null,
 };
 
 export const USER_INFO_SLICE_NAME = "userInfo";

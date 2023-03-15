@@ -1,24 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { renderDate } from "../../../../shared/helpers/dateRender";
+import { IUserInfo } from "../../../UserInfo/features/models";
 import { StyledUserCardWrapper, StyledUserMainWrapper, StyledUserPersonalInfo } from "./styles";
-
-interface IUserInfo {
-  fullName: string;
-  avatar: string;
-  birthDate: string;
-  sex: string;
-  address: {
-    street: {
-      number: number;
-      name: string;
-    };
-    state: string,
-    city: string;
-    country: string;
-  };
-  phoneNumber: string;
-  registrationDate: string;
-};
 
 interface IUser {
   fullName: string;

@@ -30,17 +30,25 @@ export interface IUser {
   };
 };
 
-export interface IUsersState {
+interface IUsersState {
   users: IUser[];
   isLoading: boolean;
   currentPage: number;
+  error: string | null;
 };
 
-export interface IServerResponse {
+export const initialState: IUsersState = {
+  users: [],
+  isLoading: false,
+  currentPage: 1,
+  error: null,
+};
+
+export interface IGetUsersResponse {
   results: IUser[];
 };
 
-export interface IGetUsersParams{
+export interface IGetUsersParamsDTO{
   requiredAmount: number,
   page: number,
 };

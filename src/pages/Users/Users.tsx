@@ -10,24 +10,7 @@ import { ROUTES_PATHS } from "../../shared/constants/routes";
 import { useAppDispatch } from "../../shared/hooks/useAppDispatch";
 import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { StyledUsersWrapper, StyledUsersList } from "./styles";
-
-interface IUserInfo {
-  fullName: string;
-  avatar: string;
-  birthDate: string;
-  sex: string;
-  address: {
-    street: {
-      number: number;
-      name: string;
-    };
-    state: string,
-    city: string;
-    country: string;
-  };
-  phoneNumber: string;
-  registrationDate: string;
-};
+import { IUserInfo } from "../../modules/UserInfo/features/models";
 
 export const Users = () => {
   const {users, isLoading, currentPage} = useAppSelector(usersSelector);

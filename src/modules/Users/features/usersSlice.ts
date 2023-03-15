@@ -1,12 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getUsers } from "./actionCreators";
-import { IServerResponse, IUsersState, USERS_SLICE_NAME } from "./models";
-
-const initialState: IUsersState = {
-  users: [],
-  isLoading: false,
-  currentPage: 1,
-};
+import { IGetUsersResponse, USERS_SLICE_NAME, initialState } from "./models";
 
 const usersSlice = createSlice({
   name: USERS_SLICE_NAME,
@@ -14,13 +8,17 @@ const usersSlice = createSlice({
   reducers:{},
   extraReducers: builder => {
     builder.addCase(getUsers.pending, (state) => {
-      state.isLoading = true;
+      state.isLoading = true;      
+      state.error = null;
     });
-    builder.addCase(getUsers.fulfilled, (state, action: PayloadAction<IServerResponse>) => {
+    builder.addCase(getUsers.fulfilled, (state, action: PayloadAction<IGetUsersResponse>) => {
       state.isLoading = false;
       state.users = [...state.users, ...action.payload.results];
       state.currentPage = state.currentPage + 1;
     });
+    builder.addCase(getUsers.rejected, (state, action) => {
+      state.isLoading = false;
+    })
   },
 });
 
