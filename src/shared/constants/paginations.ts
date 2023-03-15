@@ -1,1 +1,1 @@
-export const usersPerPage = 10;
+export const USERS_PER_PAGE = 10;
