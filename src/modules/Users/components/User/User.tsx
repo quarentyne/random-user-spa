@@ -1,15 +1,12 @@
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { renderDate } from "../../../../shared/helpers/dateRender";
 import { IUserInfo } from "../../../UserInfo/features/models";
-import { StyledUserCardWrapper, StyledUserMainWrapper, StyledUserPersonalInfo } from "./styles";
+import { StyledUserCardWrapper, StyledUserImage, StyledUserMainWrapper, StyledUserPersonalInfo } from "./styles";
 
 interface IUser {
   fullName: string;
-  avatar: {
-    large: string;
-    medium: string;
-    thumbnail: string;
-  };
+  avatar: string;
   birthDate: string;
   sex: string;
   address: {
@@ -26,20 +23,20 @@ interface IUser {
   onClickHandler: (user: IUserInfo) => void;
 };
 
-export const User = ({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate, onClickHandler}: IUser) => {
+export const User = (user: IUser) => {
+  const {fullName, avatar, birthDate, sex, onClickHandler} = user;
   const {t} = useTranslation();
+  const clickHandler = useCallback(() => {
+    onClickHandler({...user});
+  }, [onClickHandler, user]);
 
   return(
     <StyledUserCardWrapper 
       sex={sex} 
-      onClick={onClickHandler.bind(null, {fullName, avatar: avatar.large, sex, address, phoneNumber, registrationDate, birthDate } )}
+      onClick={clickHandler}
     >
       <StyledUserMainWrapper>
-        <picture>
-          <source srcSet={avatar.large} media="(min-width: 450px)" />
-          <source srcSet={avatar.medium} media="(max-width: 450px)" />
-          <img src="avatar" alt="avatar" style={{borderRadius: "10px"}}/>
-        </picture>
+        <StyledUserImage src={avatar} alt="avatar"/>
         <StyledUserPersonalInfo>
           <p><span>{t(`user.name`)}: </span>{fullName}</p>
           <p><span>{t(`user.birthday`)}: </span>{renderDate(new Date(Date.parse(birthDate)))}</p>

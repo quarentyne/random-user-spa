@@ -1,17 +1,19 @@
+interface IUserLocation {
+  street: {
+    number: number;
+    name: string;
+  };
+  state: string,
+  city: string;
+  country: string;
+};
+
 export interface IUserInfo {
   fullName: string;
   avatar: string;
   birthDate: string;
   sex: string;
-  address: {
-    street: {
-      number: number;
-      name: string;
-    };
-    state: string,
-    city: string;
-    country: string;
-  };
+  address: IUserLocation;
   phoneNumber: string;
   registrationDate: string;
 };

@@ -45,3 +45,7 @@ export const StyledUserPersonalInfo = styled.div`
     font-size: 20px;
   };   
 `;
+
+export const StyledUserImage = styled.img`
+  border-radius: 10px;
+`;
