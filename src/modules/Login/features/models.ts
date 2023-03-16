@@ -1,9 +1,9 @@
 interface ILoginStatusState {
-  isAuthorized: boolean;
+  isAuthorized: boolean | null;
 };
 
 export const initialState: ILoginStatusState = {
-  isAuthorized: localStorage.getItem("login") ? true : false,
+  isAuthorized: null,
 };
 
 export const LOGIN_STATUS_SLICE_NAME = "loginStatus";
