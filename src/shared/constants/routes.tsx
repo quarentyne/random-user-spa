@@ -18,7 +18,6 @@ interface IRoute {
   path: string;
   element: React.ReactNode;
   isProtected: boolean;
-  children?: IRoute[];
 }
 
 export const routes: IRoute[] = [
