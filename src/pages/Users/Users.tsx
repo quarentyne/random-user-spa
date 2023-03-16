@@ -16,17 +16,13 @@ export const Users = () => {
   const {users, isLoading, currentPage} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [fetching, setFetching] = useState(false);
+  const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
     if(fetching && !isLoading){      
       dispatch(getUsers({ requiredAmount: USERS_PER_PAGE, page: currentPage }));      
       setFetching(false);
     };    
-      
-    if((!users.length || users.length === USERS_PER_PAGE) && !isLoading) {
-      dispatch(getUsers({ requiredAmount: USERS_PER_PAGE, page: currentPage }));
-    };
 
   }, [fetching, isLoading, users, dispatch, currentPage]);
 

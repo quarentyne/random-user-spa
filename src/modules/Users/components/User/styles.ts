@@ -8,7 +8,10 @@ interface IWrapperProps{
 export const StyledUserCardWrapper = styled.div<IWrapperProps>`
   @media screen and (min-width: ${ScreenSizes.MOBILE}px) { 
     width: 450px;
-  };   
+  }; 
+  @media screen and (min-width: ${ScreenSizes.LAPTOP_L}px) { 
+    width: 500px;
+  };  
 
   background-color: ${props => props.sex === "male" ? "#3399ff" : "#ff99ff"};
   cursor: pointer;
