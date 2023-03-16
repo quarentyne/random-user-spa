@@ -1,13 +1,25 @@
+interface IUserLocation {
+  street: {
+    number: number;
+    name: string;
+  };
+  state: string,
+  city: string;
+  country: string;
+};
+
+interface IUserPicture {
+  large: string;
+  medium: string;
+  thumbnail: string;
+};
+
 export interface IUser {
   name: {
     first: string;
     last: string;
   };
-  picture: {
-    large: string;
-    medium: string;
-    thumbnail: string;
-  };
+  picture: IUserPicture;
   gender: string;
   dob: {
     date: string;
@@ -16,15 +28,7 @@ export interface IUser {
     date: string;
   };
   phone: string;
-  location: {
-    street: {
-      number: number;
-      name: string;
-    };
-    state: string,
-    city: string;
-    country: string;
-  };
+  location: IUserLocation;
   login:{
     username: string;
   };
