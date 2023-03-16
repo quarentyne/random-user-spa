@@ -17,7 +17,8 @@ const usersSlice = createSlice({
       state.currentPage = state.currentPage + 1;
     });
     builder.addCase(getUsers.rejected, (state, action) => {
-      state.isLoading = false;
+      state.isLoading = false;   
+      state.error = action.error.message;
     })
   },
 });
