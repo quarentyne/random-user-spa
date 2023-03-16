@@ -15,7 +15,7 @@ export const Login = () => {
 
   const handleAuthorize = () => {
     dispatch(authorize());
-    localStorage.setItem("login", isAuthorized ? "true" : "");
+    localStorage.setItem("login", isAuthorized ? "" : "true");
     if(!isAuthorized){
       navigate(ROUTES_PATHS.HOME, {replace: true});
     };
