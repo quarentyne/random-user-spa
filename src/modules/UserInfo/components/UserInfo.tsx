@@ -1,5 +1,6 @@
+import dayjs from "dayjs";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { renderDate } from "../../../shared/helpers/dateRender";
 import { StyledDivider, StyledInfoText, StyledInfoTitle, StyledUserImage, StyledUserInfoCard, StyledUserInfoMain, StyledUserName, StyledUserWrapper } from "./styles";
 
 interface IUser {
@@ -22,7 +23,9 @@ interface IUser {
 
 export const UserInfo = ({fullName, avatar, birthDate, sex, address, phoneNumber, registrationDate}: IUser) => {
   const {t} = useTranslation();
-  
+  const formattedBirthDate = useMemo(() => dayjs(birthDate).format("DD.MM.YYYY"), [birthDate]);
+  const formattedRegistrationDate = useMemo(() => dayjs(registrationDate).format("DD.MM.YYYY"), [registrationDate]);
+
   return(
     <StyledUserWrapper>
       <StyledUserInfoCard>
@@ -45,13 +48,13 @@ export const UserInfo = ({fullName, avatar, birthDate, sex, address, phoneNumber
           {t(`userInfo.birthday`)}
         </StyledInfoTitle>
         <StyledInfoText>
-          {renderDate(new Date(Date.parse(birthDate)))}
+          {formattedBirthDate}
         </StyledInfoText>
         <StyledInfoTitle>
           {t(`userInfo.registration`)}
         </StyledInfoTitle>
         <StyledInfoText>
-          {renderDate(new Date(Date.parse(registrationDate)))}
+          {formattedRegistrationDate}
         </StyledInfoText>
         <StyledInfoTitle>
           {t(`userInfo.phoneNumber`)}

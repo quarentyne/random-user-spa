@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { renderDate } from "../../../../shared/helpers/dateRender";
+import dayjs from "dayjs";
 import { IUserInfo } from "../../../UserInfo/features/models";
 import { StyledUserCardWrapper, StyledUserImage, StyledUserMainWrapper, StyledUserPersonalInfo } from "./styles";
 
@@ -29,6 +29,7 @@ export const User = (user: IUser) => {
   const clickHandler = useCallback(() => {
     onClickHandler({...user});
   }, [onClickHandler, user]);
+  const formattedBirthDate = useMemo(() => dayjs(birthDate).format("DD.MM.YYYY"), [birthDate]);
 
   return(
     <StyledUserCardWrapper 
@@ -39,7 +40,7 @@ export const User = (user: IUser) => {
         <StyledUserImage src={avatar} alt="avatar"/>
         <StyledUserPersonalInfo>
           <p><span>{t(`user.name`)}: </span>{fullName}</p>
-          <p><span>{t(`user.birthday`)}: </span>{renderDate(new Date(Date.parse(birthDate)))}</p>
+          <p><span>{t(`user.birthday`)}: </span>{formattedBirthDate}</p>
           <p><span>{t(`user.sex`)}: </span>{sex}</p>
         </StyledUserPersonalInfo>
       </StyledUserMainWrapper>
