@@ -1,12 +1,4 @@
-interface IUserLocation {
-  street: {
-    number: number;
-    name: string;
-  };
-  state: string,
-  city: string;
-  country: string;
-};
+import { IUserLocation } from "../../../models/userLocation.model";
 
 export interface IUserInfo {
   fullName: string;
