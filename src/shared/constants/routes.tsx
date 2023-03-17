@@ -17,24 +17,9 @@ export enum ROUTES_PATHS {
 interface IRoute {
   path: string;
   component: React.ReactNode;
-}
+};
 
-export const publicRoutes: IRoute[] = [
-  {
-    path: ROUTES_PATHS.LOGIN,
-    component: <Login />,
-  },
-  {
-    path: ROUTES_PATHS.BASE,
-    component: <Navigate to={ROUTES_PATHS.HOME} replace/>,
-  },
-  {
-    path: ROUTES_PATHS.NOT_FOUND,
-    component: <Notfound />,
-  },
-];
-
-export const protectedRoutes: IRoute[] = [  
+export const routes: IRoute[] = [  
   {
     path: ROUTES_PATHS.HOME,
     component: <Home />,
@@ -46,5 +31,17 @@ export const protectedRoutes: IRoute[] = [
   {
     path: ROUTES_PATHS.USER_INFO,
     component: <UserInformation />,
+  },
+  {
+    path: ROUTES_PATHS.LOGIN,
+    component: <Login />,
+  },
+  {
+    path: ROUTES_PATHS.BASE,
+    component: <Navigate to={ROUTES_PATHS.HOME} replace/>,
+  },
+  {
+    path: ROUTES_PATHS.NOT_FOUND,
+    component: <Notfound />,
   },
 ];

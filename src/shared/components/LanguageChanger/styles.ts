@@ -14,4 +14,5 @@ export const StyledLanguageChangerWrapper = styled.div`
 export const StyledLanguageChangerSelect = styled.select`
   background: none;
   border: none;
+  cursor: pointer;
 `;

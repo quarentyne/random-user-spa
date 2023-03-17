@@ -6,12 +6,15 @@ import user from "../../../assets/svg/user.svg";
 import users from "../../../assets/svg/users.svg";
 import logout from "../../../assets/svg/logout.svg";
 import { ROUTES_PATHS } from "../../constants/routes";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { loginStatusSelector } from "../../../modules/Login/features/selector";
 
 export const NavigationList = () => {
   const {t} = useTranslation();
+  const { isAuthorized } = useAppSelector(loginStatusSelector);
   
   return(
-    <StyledNavigationList>
+    <StyledNavigationList isAuthorized={isAuthorized}>
       <StyledNavigationItem>
         <StyledNavigationLink to={ROUTES_PATHS.HOME}>
           <img src={home} alt="home" width="30px"/>

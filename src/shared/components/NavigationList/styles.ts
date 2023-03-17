@@ -2,10 +2,15 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ScreenSizes } from "../../constants/themes";
 
-export const StyledNavigationList = styled.ul`
+interface INavigationList{
+  isAuthorized: boolean | null;
+}
+
+export const StyledNavigationList = styled.ul<INavigationList>`
   display: flex;  
   align-items: center;
   flex-direction: column;
+  pointer-events: ${props => props.isAuthorized ? "auto" : "none"};
 `;
 
 export const StyledNavigationItem = styled.li`
