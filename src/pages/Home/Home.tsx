@@ -12,7 +12,7 @@ export const Home = () => {
   
   if(!isAuthorized){
     return <Navigate to={ROUTES_PATHS.LOGIN} replace/>
-  }
+  };
 
   return(
     <StyledHomeContainer>

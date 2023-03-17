@@ -24,7 +24,7 @@ export const Users = () => {
       setFetching(false);
     };    
 
-  }, [fetching, isLoading, users, dispatch, currentPage]);
+  }, [fetching, isLoading, dispatch, currentPage]);
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
