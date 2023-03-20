@@ -21,6 +21,10 @@ export const StyledUserCardWrapper = styled.div<IWrapperProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.2s ease;
+  &:hover{
+    transform: scale(1.05);
+  };
 `;
 
 export const StyledUserMainWrapper = styled.div`
