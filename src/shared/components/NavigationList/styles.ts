@@ -54,3 +54,7 @@ export const StyledNavigationLink = styled(NavLink)`
     };
   };
 `;
+
+export const StyledLinkImage = styled.img`
+  width: 30px;
+`;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { StyledNavigationItem, StyledNavigationLink, StyledNavigationList } from "./styles";
+import { StyledLinkImage, StyledNavigationItem, StyledNavigationLink, StyledNavigationList } from "./styles";
 import home from "../../../assets/svg/home.svg";
 import user from "../../../assets/svg/user.svg";
 import users from "../../../assets/svg/users.svg";
@@ -17,7 +17,7 @@ export const NavigationList = () => {
     <StyledNavigationList isAuthorized={isAuthorized}>
       <StyledNavigationItem>
         <StyledNavigationLink to={ROUTES_PATHS.HOME}>
-          <img src={home} alt="home" width="30px"/>
+          <StyledLinkImage src={home} alt="home"/>
           <span>
             {t(`sideMenu.home`)}
           </span>          
@@ -25,7 +25,7 @@ export const NavigationList = () => {
       </StyledNavigationItem>
       <StyledNavigationItem>
         <StyledNavigationLink to={ROUTES_PATHS.USERS}>
-          <img src={users} alt="users" width="30px"/>
+          <StyledLinkImage src={users} alt="users"/>
           <span>
             {t(`sideMenu.users`)}
           </span>          
@@ -33,7 +33,7 @@ export const NavigationList = () => {
       </StyledNavigationItem>
       <StyledNavigationItem>
         <StyledNavigationLink to={ROUTES_PATHS.USER_INFO}>
-          <img src={user} alt="user" width="30px"/>
+          <StyledLinkImage src={user} alt="user"/>
           <span>
             {t(`sideMenu.userInfo`)}
           </span>          
@@ -41,7 +41,7 @@ export const NavigationList = () => {
       </StyledNavigationItem>
       <StyledNavigationItem>
         <StyledNavigationLink to={ROUTES_PATHS.LOGIN}>
-          <img src={logout} alt="logout" width="30px"/>
+          <StyledLinkImage src={logout} alt="logout"/>
           <span>
             {t(`sideMenu.logout`)}
           </span>

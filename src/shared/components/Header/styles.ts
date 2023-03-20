@@ -32,3 +32,11 @@ export const StyledBurgerButton = styled.button`
 export const StyledLogoWrapper = styled.div`
   z-index: 20;
 `;
+
+export const StyledLogoImage = styled.img`
+  width: 75px;
+`;
+
+export const StyledBurgerImage = styled.img`
+  width: 35px;
+`;
