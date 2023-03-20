@@ -16,7 +16,7 @@ export const Users = () => {
   const {users, isLoading, currentPage} = useAppSelector(usersSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [fetching, setFetching] = useState(true);
+  const [fetching, setFetching] = useState(false);
 
   useEffect(() => {
     if(fetching && !isLoading){      
@@ -25,6 +25,12 @@ export const Users = () => {
     };    
 
   }, [fetching, isLoading, dispatch, currentPage]);
+
+  useEffect(() => {
+    if(!users.length){
+      setFetching(true);
+    };
+  }, [users]);
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
