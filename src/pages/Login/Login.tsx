@@ -9,21 +9,23 @@ import { StyledLogButton, StyledLogBlock } from "./styles";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const {isAuthorized} = useAppSelector(loginStatusSelector);
+  const { isAuthorized } = useAppSelector(loginStatusSelector);
 
   const handleAuthorize = () => {
     dispatch(authorize());
     localStorage.setItem("login", isAuthorized ? "" : "true");
-    if(!isAuthorized){
-      navigate(ROUTES_PATHS.HOME, {replace: true});
-    };
+    if (!isAuthorized) {
+      navigate(ROUTES_PATHS.HOME, { replace: true });
+    }
   };
 
-  return(
+  return (
     <StyledLogBlock>
-      <StyledLogButton type="submit" onClick={handleAuthorize}>{t(`sideMenu.${isAuthorized ? "logout" : "login"}`)}</StyledLogButton>
+      <StyledLogButton type="submit" onClick={handleAuthorize}>
+        {t(`sideMenu.${isAuthorized ? "logout" : "login"}`)}
+      </StyledLogButton>
     </StyledLogBlock>
   );
 };

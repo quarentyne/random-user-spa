@@ -1,9 +1,9 @@
-import { Navigate } from 'react-router-dom';
-import { Home } from '../../pages/Home/Home';
-import { Login } from '../../pages/Login/Login';
-import { Notfound } from '../../pages/Notfound/Notfound';
-import { UserInformation } from '../../pages/UserInformation/UserInformation';
-import { Users } from '../../pages/Users/Users';
+import { Navigate } from "react-router-dom";
+import { Home } from "../../pages/Home/Home";
+import { Login } from "../../pages/Login/Login";
+import { Notfound } from "../../pages/Notfound/Notfound";
+import { UserInformation } from "../../pages/UserInformation/UserInformation";
+import { Users } from "../../pages/Users/Users";
 
 export enum ROUTES_PATHS {
   BASE = "/",
@@ -12,14 +12,14 @@ export enum ROUTES_PATHS {
   USER_INFO = "/user-info",
   LOGIN = "/login",
   NOT_FOUND = "*",
-};
+}
 
 interface IRoute {
   path: string;
   component: React.ReactNode;
-};
+}
 
-export const routes: IRoute[] = [  
+export const routes: IRoute[] = [
   {
     path: ROUTES_PATHS.HOME,
     component: <Home />,
@@ -38,7 +38,7 @@ export const routes: IRoute[] = [
   },
   {
     path: ROUTES_PATHS.BASE,
-    component: <Navigate to={ROUTES_PATHS.HOME} replace/>,
+    component: <Navigate to={ROUTES_PATHS.HOME} replace />,
   },
   {
     path: ROUTES_PATHS.NOT_FOUND,

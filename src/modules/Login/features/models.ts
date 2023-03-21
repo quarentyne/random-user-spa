@@ -1,6 +1,6 @@
 interface ILoginStatusState {
   isAuthorized: boolean | null;
-};
+}
 
 export const initialState: ILoginStatusState = {
   isAuthorized: null,

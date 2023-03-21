@@ -3,7 +3,7 @@ export interface IUserLocation {
     number: number;
     name: string;
   };
-  state: string,
+  state: string;
   city: string;
   country: string;
-};
+}

@@ -5,23 +5,22 @@ import { useAppSelector } from "../../shared/hooks/useAppSelector";
 import { userInfoSelector } from "../../modules/UserInfo/features/selector";
 import { UserInfo } from "../../modules/UserInfo/components/UserInfo";
 
-
 export const UserInformation = () => {
-  const {t} = useTranslation();
-  const { user } = useAppSelector(userInfoSelector); 
+  const { t } = useTranslation();
+  const { user } = useAppSelector(userInfoSelector);
 
-  if(!user){
-    return(
+  if (!user) {
+    return (
       <StyledInfoWrapper>
-        <img src={warn} alt="warning"/>
+        <img src={warn} alt="warning" />
         <span>{t(`userInfo.selectUser`)}</span>
       </StyledInfoWrapper>
     );
-  };
-  
-  return(
+  }
+
+  return (
     <StyledInfoWrapper>
-      <UserInfo 
+      <UserInfo
         fullName={user.fullName}
         birthDate={user.birthDate}
         phoneNumber={user.phoneNumber}

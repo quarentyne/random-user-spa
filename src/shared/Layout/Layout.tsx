@@ -8,10 +8,10 @@ export const Layout = () => {
   const [isVisible, setIsVisible] = useState(false);
   const toggleSideMenuVisibility = () => setIsVisible(!isVisible);
 
-  return(
+  return (
     <>
-      <Header onBurgerClick={toggleSideMenuVisibility}/>
-      <SideMenu isVisible={isVisible}/>
+      <Header onBurgerClick={toggleSideMenuVisibility} />
+      <SideMenu isVisible={isVisible} />
       <StyledLayoutContainer>
         <Outlet />
       </StyledLayoutContainer>

@@ -1,7 +1,7 @@
-import { checkAuthorizationStatus } from './modules/Login/features/loginStatusSlice';
-import { RouterConfig } from './router/Config';
-import { useAppDispatch } from './shared/hooks/useAppDispatch';
-import { GlobalStyle } from './styles';
+import { checkAuthorizationStatus } from "./modules/Login/features/loginStatusSlice";
+import { RouterConfig } from "./router/Config";
+import { useAppDispatch } from "./shared/hooks/useAppDispatch";
+import { GlobalStyle } from "./styles";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -13,6 +13,6 @@ const App = () => {
       <RouterConfig />
     </>
   );
-}
+};
 
 export default App;
