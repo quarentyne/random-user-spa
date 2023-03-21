@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import { useDateFormatter } from "../../../../shared/hooks/useDateFormatter";
 
-interface IUser {
+interface IUserCard {
   fullName: string;
   avatar: string;
   birthDate: string;
@@ -28,11 +28,11 @@ interface IUser {
   onClickHandler: (user: IUserInfo) => void;
 }
 
-export const User = (user: IUser) => {
+export const UserCard = (user: IUserCard) => {
   const { fullName, avatar, birthDate, sex, onClickHandler } = user;
   const { t } = useTranslation();
   const clickHandler = useCallback(() => {
-    onClickHandler({ ...user });
+    onClickHandler(user);
   }, [onClickHandler, user]);
   const formattedBirthDate = useDateFormatter(birthDate);
 

@@ -6,7 +6,7 @@ import { IGetUsersParamsDTO, IGetUsersResponse, USERS_SLICE_NAME } from "./model
 export const getUsers = createAsyncThunk<IGetUsersResponse, IGetUsersParamsDTO, {serializedErrorType: IApiError}>(
   `${USERS_SLICE_NAME}/getUsers`,
   async function (data: IGetUsersParamsDTO) {
-    const response = await UsersAPI.getUsers({...data});
+    const response = await UsersAPI.getUsers(data);
     return response.data;
   }
 );

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { USERS_PER_PAGE } from "../../shared/constants/paginations";
 import { setUserInfo } from "../../modules/UserInfo/features/userInfoSlice";
-import { User } from "../../modules/Users/components/User/User";
+import { UserCard } from "../../modules/Users/components/User/UserCard";
 import { getUsers } from "../../modules/Users/features/actionCreators";
 import { usersSelector } from "../../modules/Users/features/selector";
 import { LoadCircle } from "../../shared/components/LoadCircle/LoadCircle";
@@ -40,9 +40,12 @@ export const Users = () => {
 
   const scrollHandler = (e: Event) => {
     const target = e.target as Document;
-    if (target.documentElement.scrollHeight -
+    if (
+      target.documentElement.scrollHeight -
         target.documentElement.scrollTop -
-        window.innerHeight < 50) {
+        window.innerHeight <
+      50
+    ) {
       setFetching(true);
     }
   };
@@ -56,7 +59,7 @@ export const Users = () => {
     <StyledUsersWrapper>
       <StyledUsersList>
         {users?.map((user) => (
-          <User
+          <UserCard
             key={user.login.username}
             fullName={`${user.name.last} ${user.name.first}`}
             phoneNumber={user.phone}
