@@ -1,6 +1,5 @@
-import dayjs from "dayjs";
-import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { useDateFormatter } from "../../../shared/hooks/useDateFormatter";
 import {
   StyledDivider,
   StyledInfoText,
@@ -40,14 +39,8 @@ export const UserInfo = ({
   registrationDate,
 }: IUser) => {
   const { t } = useTranslation();
-  const formattedBirthDate = useMemo(
-    () => dayjs(birthDate).format("DD.MM.YYYY"),
-    [birthDate]
-  );
-  const formattedRegistrationDate = useMemo(
-    () => dayjs(registrationDate).format("DD.MM.YYYY"),
-    [registrationDate]
-  );
+  const formattedBirthDate = useDateFormatter(birthDate);
+  const formattedRegistrationDate = useDateFormatter(registrationDate);
 
   return (
     <StyledUserWrapper>

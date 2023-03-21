@@ -1,6 +1,5 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import dayjs from "dayjs";
 import { IUserInfo } from "../../../UserInfo/features/models";
 import {
   StyledUserCardWrapper,
@@ -8,6 +7,7 @@ import {
   StyledUserMainWrapper,
   StyledUserPersonalInfo,
 } from "./styles";
+import { useDateFormatter } from "../../../../shared/hooks/useDateFormatter";
 
 interface IUser {
   fullName: string;
@@ -34,10 +34,7 @@ export const User = (user: IUser) => {
   const clickHandler = useCallback(() => {
     onClickHandler({ ...user });
   }, [onClickHandler, user]);
-  const formattedBirthDate = useMemo(
-    () => dayjs(birthDate).format("DD.MM.YYYY"),
-    [birthDate]
-  );
+  const formattedBirthDate = useDateFormatter(birthDate);
 
   return (
     <StyledUserCardWrapper sex={sex} onClick={clickHandler}>
