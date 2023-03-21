@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import {
   StyledLinkImage,
@@ -13,10 +14,17 @@ import logout from "../../../assets/svg/logout.svg";
 import { ROUTES_PATHS } from "../../constants/routes";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { loginStatusSelector } from "../../../modules/Login/features/selector";
+import { authorize } from "../../../modules/Login/features/loginStatusSlice";
 
 export const NavigationList = () => {
   const { t } = useTranslation();
   const { isAuthorized } = useAppSelector(loginStatusSelector);
+  const dispatch = useDispatch();
+
+  const handleAuthorize = () => {
+    dispatch(authorize());
+    localStorage.setItem("login", "");
+  };
 
   return (
     <StyledNavigationList isAuthorized={isAuthorized}>
@@ -38,10 +46,12 @@ export const NavigationList = () => {
           <span>{t(`sideMenu.userInfo`)}</span>
         </StyledNavigationLink>
       </StyledNavigationItem>
-      <StyledNavigationItem>
+      <StyledNavigationItem onClick={isAuthorized ? handleAuthorize : () => {}}>
         <StyledNavigationLink to={ROUTES_PATHS.LOGIN}>
           <StyledLinkImage src={logout} alt="logout" />
-          <span>{t(`sideMenu.logout`)}</span>
+          <span>
+            {t(`${isAuthorized ? "sideMenu.logout" : "sideMenu.login"}`)}
+          </span>
         </StyledNavigationLink>
       </StyledNavigationItem>
     </StyledNavigationList>
